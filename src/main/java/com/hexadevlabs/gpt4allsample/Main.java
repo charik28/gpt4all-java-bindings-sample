@@ -21,7 +21,7 @@ public class Main {
 
         String baseModelPath = null;
         if(isWindows){
-            baseModelPath ="C:\\Users\\felix\\AppData\\Local\\nomic.ai\\GPT4All\\";
+            baseModelPath ="C:\\wrk\\ai\\nomic.ai\\models\\bin\\";
         } else if(isLinux){
             baseModelPath = "/mnt/c/Users/felix/AppData/Local/nomic.ai/GPT4All/";
         } else if(isMac) {
@@ -53,7 +53,7 @@ public class Main {
         }
 
         // Debut output format. In case you need it.
-        // LLModel.OUTPUT_DEBUG=true;
+         LLModel.OUTPUT_DEBUG=true;
 
         Path modelPath = Path.of(baseModelPath + modelFilePath);
 
@@ -82,6 +82,7 @@ public class Main {
             model.generate(prompt, config, true);
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
